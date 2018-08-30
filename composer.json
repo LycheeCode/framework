@@ -1,0 +1,20 @@
+{
+    "name": "lychee/framework",
+    "description": "The Lychee Framework.",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Y!an",
+            "email": "i@yian.me"
+        }
+    ],
+    "license": "MIT",
+    "require": {
+        "lychee/message": "^0.1.2"
+    },
+    "autoload": {
+        "psr-4" : {
+            "Lychee\\": "src/"
+        }
+    }
+}
