@@ -2,7 +2,7 @@
 
 /**
  * 依赖注入容器
- * 
+ *
  * @package Lychee
  */
 
@@ -66,29 +66,25 @@ class Container
     private function register($alias, $class, $is_singleton = false)
     {
         // 标记单例
-        if ($is_singleton)
-        {
+        if ($is_singleton) {
             $this->singletons[] = $alias;
         }
 
         // 以闭包形式传入
-        if (is_callable($class))
-        {
+        if (is_callable($class)) {
             $instance = $class();
             $this->instances[$alias] = $instance;
             $this->binds[$alias] = get_class($instance);
         }
 
         // 以实例形式传入
-        if (is_object($class) && get_class($class) != "Closure")
-        {
+        if (is_object($class) && get_class($class) != "Closure") {
             $this->instances[$alias] = $class;
             $this->binds[$alias] = get_class($class);
         }
 
         // 以类名传入
-        if (is_string($class))
-        {
+        if (is_string($class)) {
             $this->binds[$alias] = $class;
         }
     }
@@ -102,17 +98,14 @@ class Container
      */
     public function make($alias, $params = [])
     {
-        if (! isset($this->instances[$alias]))
-        {
-            if (! isset($this->binds[$alias]))
-            {
+        if (! isset($this->instances[$alias])) {
+            if (! isset($this->binds[$alias])) {
                 return null;
             }
             $this->instances[$alias] = $this->getNewInstance($alias, $params);
         }
 
-        if (in_array($alias, $this->singletons))
-        {
+        if (in_array($alias, $this->singletons)) {
             // 单例
             return $this->instances[$alias];
         }
@@ -138,21 +131,17 @@ class Container
         }
 
         $constructor = $reflect->getConstructor();
-        if ($constructor)
-        {
+        if ($constructor) {
             $objParams = [];
             $constructParams = $constructor->getParameters();
 
             // 如果构造方法存在参数
-            if ($constructParams)
-            {
-                foreach ($constructParams as $param)
-                {
+            if ($constructParams) {
+                foreach ($constructParams as $param) {
                     $interface = $param->getClass();
 
                     // 如果参数是某个类，则从容器中自动注入
-                    if ($interface)
-                    {
+                    if ($interface) {
                         $objParams[] = $this->getNewInstanceByClassName($instance->name);
                     }
                 }
@@ -172,8 +161,7 @@ class Container
     private function getNewInstanceByClassName($className)
     {
         $boundClasses = array_flip($this->binds);
-        if (isset($boundClasses[$className]))
-        {
+        if (isset($boundClasses[$className])) {
             return $this->make($boundClasses[$className]);
         }
         throw new \Exception(sprintf('Class "%s" not found', $className));
