@@ -2,7 +2,7 @@
 
 /**
  * 响应数据
- * 
+ *
  * @package Lychee
  */
 

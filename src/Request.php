@@ -2,7 +2,7 @@
 
 /**
  * 微信请求
- * 
+ *
  * @package Lychee
  */
 
@@ -59,7 +59,7 @@ class Request
                 return;
             }
             $this->isMsg = true;
-        } else if ($method == 'GET' && ! empty($_GET['echostr'])) {
+        } elseif ($method == 'GET' && ! empty($_GET['echostr'])) {
             $this->validData['echostr'] = $_GET['echostr'];
             $this->isValidate = true;
         }
