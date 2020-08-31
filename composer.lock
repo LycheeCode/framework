@@ -1,11 +1,53 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bbce69088b89af68747f5767fa55dc55",
+    "content-hash": "90e5026b5a6e9eab67fdd7745d400215",
     "packages": [
+        {
+            "name": "lychee/container",
+            "version": "v0.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/LycheeCode/Container.git",
+                "reference": "b324abe6c0257499ab4a800a37ecfc1d342ade48"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/LycheeCode/Container/zipball/b324abe6c0257499ab4a800a37ecfc1d342ade48",
+                "reference": "b324abe6c0257499ab4a800a37ecfc1d342ade48",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^8.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Lychee\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Y!an",
+                    "email": "i@yian.me"
+                }
+            ],
+            "description": "Dependency Injection Container",
+            "time": "2020-08-30T16:13:34+00:00"
+        },
         {
             "name": "lychee/message",
             "version": "v0.1.2",
@@ -18,7 +60,13 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/LycheeCode/Message/zipball/6d48e80a465c70ddd0b1d4f045c0742370e72198",
                 "reference": "6d48e80a465c70ddd0b1d4f045c0742370e72198",
-                "shasum": ""
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
             },
             "type": "library",
             "autoload": {
