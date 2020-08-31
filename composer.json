@@ -11,7 +11,7 @@
     "license": "MIT",
     "require": {
         "lychee/message": "^0.1.2",
-        "lychee/container": "^0.0.1"
+        "lychee/container": "^0.0.2"
     },
     "autoload": {
         "psr-4" : {
